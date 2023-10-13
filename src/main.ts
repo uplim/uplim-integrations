@@ -12,7 +12,7 @@ function main({ calendarId }: { calendarId: string }) {
         'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
       content: `予定が${switchTitle(
         event.changeState
-      )}されました。\n\n タイトル: ${
+      )}されました。\n タイトル: ${
         event.summary
       } \n 時間: ${buildDateTimeString(event.start!, event.end!)}`,
     })
