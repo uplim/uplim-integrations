@@ -6,11 +6,13 @@
   "private": true,
   "scripts": {
     "clasp": "clasp",
-    "build": "cp src/appsscript.json dist/ && cat src/*.ts | grep -Ev '^import' > dist/bundle.ts",
+    "build": "cp src/appsscript.json dist/ && node build.js",
     "push": "npm run build && clasp push"
   },
   "devDependencies": {
     "@google/clasp": "^2.4.2",
-    "@types/google-apps-script": "^1.0.57"
+    "@types/google-apps-script": "^1.0.57",
+    "esbuild": "^0.19.4",
+    "esbuild-gas-plugin": "^0.8.0"
   }
 }

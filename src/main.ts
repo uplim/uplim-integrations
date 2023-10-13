@@ -67,3 +67,6 @@ function formatDate(date: Date, format: string): string {
   format = format.replace(/A/g, '日月火水木金土'[date.getDay()])
   return format
 }
+
+declare let global: any
+global.main = main

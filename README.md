@@ -21,3 +21,8 @@ Google カレンダーの変更通知を Slack に飛ばす Google Apps Script
 ```
 npm run push
 ```
+
+## format
+```
+npx prettier -w .
+```
