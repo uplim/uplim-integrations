@@ -10,11 +10,12 @@ function main({ calendarId }: { calendarId: string }) {
       parse: 'full',
       avatar_url:
         'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
-      content: `予定が${switchTitle(event.changeState)}されました。`,
+      content: `予定が${switchState(event.changeState).state}されました。`,
       embeds: [
         {
           title: event.summary,
           url: event.htmlLink,
+          color: switchState(event.changeState).color,
           fields: [
             {
               name: ':calendar: 日付',
@@ -27,10 +28,12 @@ function main({ calendarId }: { calendarId: string }) {
   })
 }
 
-function switchTitle(state: 'created' | 'updated' | 'deleted') {
-  if (state === 'created') return '作成'
-  else if (state === 'deleted') return '削除'
-  else return '更新'
+function switchState(state: 'created' | 'updated' | 'deleted') {
+  if (state === 'created')
+    return { state: '作成', color: parseInt('008000', 16) }
+  else if (state === 'deleted')
+    return { state: '削除', color: parseInt('FF0000', 16) }
+  else return { state: '変更', color: parseInt('FFFF00', 16) }
 }
 
 function buildDateTimeString(
