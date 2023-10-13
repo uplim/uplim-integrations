@@ -10,11 +10,19 @@ function main({ calendarId }: { calendarId: string }) {
       parse: 'full',
       avatar_url:
         'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
-      content: `予定が${switchTitle(
-        event.changeState
-      )}されました。\n タイトル: ${
-        event.summary
-      } \n 時間: ${buildDateTimeString(event.start!, event.end!)}`,
+      content: `予定が${switchTitle(event.changeState)}されました。`,
+      embeds: [
+        {
+          title: event.summary,
+          url: event.htmlLink,
+          fields: [
+            {
+              name: ':calendar: 日付',
+              value: buildDateTimeString(event.start!, event.end!),
+            },
+          ],
+        },
+      ],
     })
   })
 }
