@@ -1,6 +1,6 @@
 # Google Calendar Event Notificator
 
-Google カレンダーの変更通知を Slack に飛ばす Google Apps Script
+Google カレンダーの変更通知を Discord に飛ばす Google Apps Script
 
 ## Setup
 
@@ -12,7 +12,7 @@ Google カレンダーの変更通知を Slack に飛ばす Google Apps Script
 - Create new script:
   1. `npm run clasp -- create --title GoogleCalendarEventNotificator --type standalone --rootDir ./dist`
   2. Create trigger from calendar source
-  3. Set script property `SLACK_INCOMING_WEBHOOK_URL`
+  3. Set script property `DISCORD_INCOMING_WEBHOOK_URL`
 - Set exsisting script ID:
   1. Create `.clasp.json` file and write `{"scriptId": "<Script ID>", "rootDir": "./dist"}`
 
