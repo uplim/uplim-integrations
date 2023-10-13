@@ -79,5 +79,5 @@ function formatDate(date: Date, format: string): string {
   return format
 }
 
-declare let global: any
+declare const global: any
 global.main = main
