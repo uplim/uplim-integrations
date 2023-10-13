@@ -4,28 +4,25 @@ import { postMessage } from './discord'
 function main({ calendarId }: { calendarId: string }) {
   fetchCalendarChanges(calendarId).forEach((event) => {
     console.log(event)
-    let username: string, color: string
-    switch (event.changeState) {
-      case 'created':
-        username = 'New calendar event created'
-        color = 'good'
-        break
-      case 'updated':
-        username = 'Calendar event updated'
-        color = 'warning'
-        break
-      case 'deleted':
-        username = 'Calendar event was cancelled'
-        color = 'danger'
-        break
-    }
+
     postMessage({
-      username,
+      username: 'Google Calendar Notifications',
       parse: 'full',
-      avatar_url: 'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
-      content: event.summary,
+      avatar_url:
+        'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
+      content: `予定が${switchTitle(
+        event.changeState
+      )}されました。\n\n タイトル: ${
+        event.summary
+      } \n 時間: ${buildDateTimeString(event.start!, event.end!)}`,
     })
   })
+}
+
+function switchTitle(state: 'created' | 'updated' | 'deleted') {
+  if (state === 'created') return '作成'
+  else if (state === 'deleted') return '削除'
+  else return '更新'
 }
 
 function buildDateTimeString(
