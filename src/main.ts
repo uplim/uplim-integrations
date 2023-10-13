@@ -1,5 +1,5 @@
 import { fetchCalendarChanges } from './calendar'
-import { postMessage } from './slack'
+import { postMessage } from './discord'
 
 function main({ calendarId }: { calendarId: string }) {
   fetchCalendarChanges(calendarId).forEach((event) => {
@@ -21,15 +21,9 @@ function main({ calendarId }: { calendarId: string }) {
     }
     postMessage({
       username,
-      fallback: event.summary,
-      attachments: [
-        {
-          color,
-          title: event.summary,
-          title_link: event.htmlLink,
-          text: buildDateTimeString(event.start!, event.end!),
-        },
-      ],
+      parse: 'full',
+      avatar_url: 'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
+      content: event.summary,
     })
   })
 }
