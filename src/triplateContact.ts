@@ -26,8 +26,13 @@ function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
   \`\`\`
   `
 
-  // データを作って投げる
-  postMessage(message)
+  postMessage({
+    username: 'Triplateのお問い合わせ通知Bot',
+    parse: 'full',
+    avatar_url:
+      'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
+    content: message,
+  })
 }
 
 declare const global: any
