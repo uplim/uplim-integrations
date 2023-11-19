@@ -1100,6 +1100,7 @@ __metadata:
     "@types/google-apps-script": "npm:^1.0.77"
     esbuild: "npm:^0.19.6"
     esbuild-gas-plugin: "npm:^0.8.0"
+    prettier: "npm:^3.1.0"
   languageName: unknown
   linkType: soft
 
@@ -2819,6 +2820,15 @@ __metadata:
   version: 3.0.1
   resolution: "prepend-http@npm:3.0.1"
   checksum: 70b7ff4c398d7052d7260e63d977cc3aacff81bcaf143990082a2569d2bea6a84675fed978e7a32ca40b23a582f719ace6f4d4e1ecdba26550d7ce9652cb001c
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "prettier@npm:3.1.0"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: a45ea70aa97fde162ea4c4aba3dfc7859aa6a732a1db34458d9535dc3c2c16d3bc3fb5689e6cd76aa835562555303b02d9449fd2e15af3b73c8053557e25c5b6
   languageName: node
   linkType: hard
 
