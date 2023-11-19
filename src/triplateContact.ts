@@ -1,13 +1,13 @@
-import { postMessage } from "./utils/postMessage";
+import { postMessage } from './utils/postMessage'
 
 function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
-  const formResponses = e.response.getItemResponses();
+  const formResponses = e.response.getItemResponses()
   const email = e.response.getRespondentEmail();
 
-  let contents = "";
+  let contents = ''
   // 項目を繰り返す
   for (let i = 0; i < formResponses.length; i++) {
-    const formResponse = formResponses[i];
+    const formResponse = formResponses[i]
 
     try {
       const question = formResponse.getItem().getTitle();
@@ -15,7 +15,7 @@ function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
 
       contents += question + " : " + answer + "\n";
     } catch (e) {
-      console.log(e);
+      console.log(e)
     }
   }
 
@@ -24,11 +24,11 @@ function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
   \`\`\`
   ${contents}
   \`\`\`
-  `;
+  `
 
   // データを作って投げる
-  postMessage(message);
+  postMessage(message)
 }
 
-declare const global: any;
-global.triplateContact = triplateContact;
+declare const global: any
+global.triplateContact = triplateContact
