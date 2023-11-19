@@ -2,9 +2,9 @@ const { GasPlugin } = require('esbuild-gas-plugin')
 
 require('esbuild')
   .build({
-    entryPoints: ['src/main.ts'],
+    entryPoints: ['src/triplateContact.ts'],
     bundle: true,
-    outfile: 'dist/main.js',
+    outfile: 'dist/triplateContact.js',
     plugins: [GasPlugin],
   })
   .catch(() => process.exit(1))

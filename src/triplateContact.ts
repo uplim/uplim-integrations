@@ -1,6 +1,6 @@
 import { postMessage } from "./utils/postMessage";
 
-function main(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
+function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
   const formResponses = e.response.getItemResponses();
   const email = e.response.getRespondentEmail();
 
@@ -31,4 +31,4 @@ function main(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
 }
 
 declare const global: any;
-global.main = main;
+global.triplateContact = triplateContact;
