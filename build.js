@@ -2,9 +2,9 @@ const { GasPlugin } = require('esbuild-gas-plugin')
 
 require('esbuild')
   .build({
-    entryPoints: ['src/triplateContact.ts'],
+    entryPoints: ['src/sendNotificationToDiscord.ts'],
     bundle: true,
-    outfile: 'dist/triplateContact.js',
+    outfile: 'dist/sendNotificationToDiscord.js',
     plugins: [GasPlugin],
   })
   .catch(() => process.exit(1))

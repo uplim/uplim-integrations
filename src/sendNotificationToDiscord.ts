@@ -1,6 +1,6 @@
 import { postMessage } from "./utils/postMessage";
 
-function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
+function sendNotificationToDiscord(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
   const formResponses = e.response.getItemResponses();
   const email = e.response.getRespondentEmail();
 
@@ -36,4 +36,4 @@ function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
 }
 
 declare const global: any;
-global.triplateContact = triplateContact;
+global.sendNotificationToDiscord = sendNotificationToDiscord;
