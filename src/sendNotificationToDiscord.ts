@@ -21,10 +21,7 @@ function sendNotificationToDiscord(e: GoogleAppsScript.Events.FormsOnFormSubmit)
     if (i !== formResponses.length) contents += "\n";
   }
 
-  const message = `${email}からお問い合わせです。
-  \`\`\`
-  ${contents}
-  \`\`\``;
+  const message = `${email}からお問い合わせです。\n\`\`\`\n${contents}\n\`\`\``;
 
   postMessage({
     username: "Triplateのお問い合わせ通知Bot",
