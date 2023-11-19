@@ -2,7 +2,7 @@
   "name": "discord-notificator",
   "packageManager": "yarn@4.0.0",
   "scripts": {
-    "build": "cp src/appsscript.json dist/ && node build.js"
+    "build": "cp appsscript.json dist/ && node build.js"
   },
   "devDependencies": {
     "@google/clasp": "^2.4.2",
