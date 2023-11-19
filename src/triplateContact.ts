@@ -1,39 +1,39 @@
-import { postMessage } from './utils/postMessage'
+import { postMessage } from "./utils/postMessage";
 
 function triplateContact(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
-  const formResponses = e.response.getItemResponses()
+  const formResponses = e.response.getItemResponses();
   const email = e.response.getRespondentEmail();
 
-  let contents = ''
+  let contents = "";
   // 項目を繰り返す
   for (let i = 0; i < formResponses.length; i++) {
-    const formResponse = formResponses[i]
+    const formResponse = formResponses[i];
 
     try {
       const question = formResponse.getItem().getTitle();
       const answer = formResponse.getResponse();
 
-      contents += question + " : " + answer + "\n";
+      contents += `${question}: ${answer}`;
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
+
+    if (i !== formResponses.length) contents += "\n";
   }
 
-  const message = `
-  ${email}からお問い合わせです。
+  const message = `${email}からお問い合わせです。
   \`\`\`
   ${contents}
-  \`\`\`
-  `
+  \`\`\``;
 
   postMessage({
-    username: 'Triplateのお問い合わせ通知Bot',
-    parse: 'full',
+    username: "Triplateのお問い合わせ通知Bot",
+    parse: "full",
     avatar_url:
-      'https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png',
+      "https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png",
     content: message,
-  })
+  });
 }
 
-declare const global: any
-global.triplateContact = triplateContact
+declare const global: any;
+global.triplateContact = triplateContact;
