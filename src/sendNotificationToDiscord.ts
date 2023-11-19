@@ -24,7 +24,7 @@ function sendNotificationToDiscord(e: GoogleAppsScript.Events.FormsOnFormSubmit)
   const message = `${email}からお問い合わせです。\n\`\`\`\n${contents}\n\`\`\``;
 
   postMessage({
-    username: "Triplateのお問い合わせ通知Bot",
+    username: "Triplate Contact",
     parse: "full",
     avatar_url:
       "https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png",
