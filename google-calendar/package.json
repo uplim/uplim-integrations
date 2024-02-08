@@ -1,5 +1,5 @@
 {
-  "name": "google-calendar-event-notificator-for-discord",
+  "name": "google-calendar",
   "version": "1.0.0",
   "description": "Google カレンダーの変更通知を Discord に飛ばす Google Apps Script",
   "license": "MIT",
@@ -10,9 +10,9 @@
     "push": "npm run build && clasp push"
   },
   "devDependencies": {
-    "@google/clasp": "^2.4.2",
-    "@types/google-apps-script": "^1.0.57",
-    "esbuild": "^0.19.4",
-    "esbuild-gas-plugin": "^0.8.0"
+    "@google/clasp": "2.4.2",
+    "@types/google-apps-script": "1.0.57",
+    "esbuild": "0.19.4",
+    "esbuild-gas-plugin": "0.8.0"
   }
 }

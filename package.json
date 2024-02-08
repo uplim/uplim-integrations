@@ -1,5 +1,6 @@
 {
   "name": "uplim-integrations",
+  "version": "0.0.0",
   "packageManager": "yarn@4.1.0",
   "scripts": {
     "lint": "biome check .",
@@ -9,5 +10,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3"
-  }
+  },
+  "workspaces": [
+    "triplate-contact-form",
+    "google-calendar"
+  ]
 }
