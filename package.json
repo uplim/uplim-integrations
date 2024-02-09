@@ -13,6 +13,7 @@
   },
   "workspaces": [
     "triplate-contact-form",
-    "google-calendar"
+    "google-calendar",
+    "triplate-delete-user-form"
   ]
 }
