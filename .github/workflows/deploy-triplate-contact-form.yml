@@ -35,7 +35,7 @@ jobs:
           cat > ./triplate-contact-form/.clasp.json <<EOF
           {
             "scriptId": "${{ secrets.TRIPLATE_CONTACT_FORM_SCRIPT_ID }}",
-            "roodDir": "./dist"
+            "rootDir": "./dist"
           }
           EOF
 
