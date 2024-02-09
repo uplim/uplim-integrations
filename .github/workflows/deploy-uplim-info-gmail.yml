@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - uplim-info-gmail/**
-      - utils/**
+      - packages/uplim-info-gmail/**
+      - packages/utils/**
   workflow_dispatch:
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
 
       - name: Create .clasp.json
         run: |
-          cat > ./uplim-info-gmail/.clasp.json <<EOF
+          cat > ./packages/uplim-info-gmail/.clasp.json <<EOF
           {
             "scriptId": "${{ secrets.UPLIM_INFO_GMAIL_SCRIPT_ID }}",
             "rootDir": "./dist"

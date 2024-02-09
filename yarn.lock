@@ -1996,9 +1996,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-calendar@workspace:google-calendar":
+"google-calendar@workspace:packages/google-calendar":
   version: 0.0.0-use.local
-  resolution: "google-calendar@workspace:google-calendar"
+  resolution: "google-calendar@workspace:packages/google-calendar"
   dependencies:
     "@google/clasp": "npm:2.4.2"
     "@types/google-apps-script": "npm:1.0.57"
@@ -3674,9 +3674,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"triplate-contact-form@workspace:triplate-contact-form":
+"triplate-contact-form@workspace:packages/triplate-contact-form":
   version: 0.0.0-use.local
-  resolution: "triplate-contact-form@workspace:triplate-contact-form"
+  resolution: "triplate-contact-form@workspace:packages/triplate-contact-form"
   dependencies:
     "@google/clasp": "npm:2.4.2"
     "@types/google-apps-script": "npm:1.0.77"
@@ -3686,9 +3686,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"triplate-delete-user-form@workspace:triplate-delete-user-form":
+"triplate-delete-user-form@workspace:packages/triplate-delete-user-form":
   version: 0.0.0-use.local
-  resolution: "triplate-delete-user-form@workspace:triplate-delete-user-form"
+  resolution: "triplate-delete-user-form@workspace:packages/triplate-delete-user-form"
   dependencies:
     "@google/clasp": "npm:2.4.2"
     "@types/google-apps-script": "npm:1.0.77"
@@ -3824,9 +3824,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uplim-info-gmail@workspace:uplim-info-gmail":
+"uplim-info-gmail@workspace:packages/uplim-info-gmail":
   version: 0.0.0-use.local
-  resolution: "uplim-info-gmail@workspace:uplim-info-gmail"
+  resolution: "uplim-info-gmail@workspace:packages/uplim-info-gmail"
   dependencies:
     "@google/clasp": "npm:2.4.2"
     "@types/google-apps-script": "npm:1.0.77"
@@ -3869,9 +3869,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"utils@workspace:*, utils@workspace:utils":
+"utils@workspace:*, utils@workspace:packages/utils":
   version: 0.0.0-use.local
-  resolution: "utils@workspace:utils"
+  resolution: "utils@workspace:packages/utils"
   languageName: unknown
   linkType: soft
 

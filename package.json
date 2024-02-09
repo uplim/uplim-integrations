@@ -14,10 +14,6 @@
     "typescript": "5.3.3"
   },
   "workspaces": [
-    "triplate-contact-form",
-    "google-calendar",
-    "triplate-delete-user-form",
-    "uplim-info-gmail",
-    "utils"
+    "packages/*"
   ]
 }

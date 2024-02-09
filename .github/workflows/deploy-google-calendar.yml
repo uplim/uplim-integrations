@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - google-calendar/**
-      - utils/**
+      - packages/google-calendar/**
+      - packages/utils/**
   workflow_dispatch:
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
 
       - name: Create .clasp.json
         run: |
-          cat > ./google-calendar/.clasp.json <<EOF
+          cat > ./packages/google-calendar/.clasp.json <<EOF
           {
             "scriptId": "${{ secrets.UPLIM_GOOGLE_CALENDAR_SCRIPT_ID }}",
             "rootDir": "./dist"

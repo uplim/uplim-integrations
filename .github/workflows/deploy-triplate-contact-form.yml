@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - triplate-contact-form/**
-      - utils/**
+      - packages/triplate-contact-form/**
+      - packages/utils/**
   workflow_dispatch:
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
 
       - name: Create .clasp.json
         run: |
-          cat > ./triplate-contact-form/.clasp.json <<EOF
+          cat > ./packages/triplate-contact-form/.clasp.json <<EOF
           {
             "scriptId": "${{ secrets.TRIPLATE_CONTACT_FORM_SCRIPT_ID }}",
             "rootDir": "./dist"
