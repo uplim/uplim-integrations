@@ -41,4 +41,4 @@ jobs:
 
       - name: Build & Deploy
         run: |
-          yarn workspace triplate-contact-form push
+          cd triplate-contact-form && yarn push
