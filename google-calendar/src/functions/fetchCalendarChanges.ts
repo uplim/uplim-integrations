@@ -1,6 +1,6 @@
 type CalendarChangeState = "created" | "updated" | "deleted";
 
-export interface CustomCalendarChangeEvent
+interface CustomCalendarChangeEvent
   extends GoogleAppsScript.Calendar.Schema.Event {
   changeState: CalendarChangeState;
 }

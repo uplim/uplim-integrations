@@ -1,4 +1,4 @@
-import { fetchCalendarChanges } from "./calendar";
+import { fetchCalendarChanges } from "./functions/fetchCalendarChanges";
 import { postMessage } from "./functions/postMessage";
 
 function main({ calendarId }: { calendarId: string }) {
