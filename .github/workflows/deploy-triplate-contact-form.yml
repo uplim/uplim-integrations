@@ -1,0 +1,43 @@
+name: Build & Deploy Triplate Contact Form
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - triplate-contact-form/**
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.11.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.0'
+
+      - name: Install Packages
+        run: |
+          corepack enable
+          yarn workspaces focus triplate-contact-form
+
+      - name: Create .clasprc.json
+        run: |
+          echo "${{ secrets.TRIPLATE_DEV_BASE64 }}" | base64 --decode > .clasprc.json
+
+      - name: Create .clasp.json
+        run: |
+          cat > ./.clasp.json <<EOF
+          {
+            "scriptId": "${{ secrets.TRIPLATE_CONTACT_FORM_SCRIPT_ID }}",
+            "roodDir": "./dist"
+          }
+
+      - name: Build & Deploy
+        run: |
+          yarn workspace triplate-contact-form push
