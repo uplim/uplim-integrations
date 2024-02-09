@@ -1,2 +1,4 @@
 node_modules
 dist
+.clasprc.json
+.clasp.json

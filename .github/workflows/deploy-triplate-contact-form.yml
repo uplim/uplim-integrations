@@ -28,7 +28,7 @@ jobs:
 
       - name: Create .clasprc.json
         run: |
-          echo "${{ secrets.TRIPLATE_DEV_BASE64 }}" | base64 --decode > .clasprc.json
+          echo "${{ secrets.TRIPLATE_DEV_BASE64 }}" | base64 --decode > ~/.clasprc.json
 
       - name: Create .clasp.json
         run: |
