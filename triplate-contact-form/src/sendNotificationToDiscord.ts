@@ -1,6 +1,8 @@
 import { postMessage } from "./utils/postMessage";
 
-function sendNotificationToDiscord(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
+function sendNotificationToDiscord(
+  e: GoogleAppsScript.Events.FormsOnFormSubmit,
+) {
   const formResponses = e.response.getItemResponses();
   const email = e.response.getRespondentEmail();
 
@@ -18,7 +20,7 @@ function sendNotificationToDiscord(e: GoogleAppsScript.Events.FormsOnFormSubmit)
       console.log(e);
     }
 
-    if (i+1 !== formResponses.length) contents += "\n";
+    if (i + 1 !== formResponses.length) contents += "\n";
   }
 
   const message = `${email}からお問い合わせです。\n\`\`\`\n${contents}\n\`\`\``;
