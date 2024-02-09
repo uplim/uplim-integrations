@@ -1,8 +1,12 @@
-import { postMessage } from "./utils/postMessage";
+import { postMessage } from "./functions/postMessage";
 
-function sendNotificationToDiscord(
-  e: GoogleAppsScript.Events.FormsOnFormSubmit,
-) {
+declare const global: Record<
+  string,
+  (e: GoogleAppsScript.Events.FormsOnFormSubmit) => void
+>;
+global.main = main;
+
+function main(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
   const formResponses = e.response.getItemResponses();
   const email = e.response.getRespondentEmail();
 
@@ -33,6 +37,3 @@ function sendNotificationToDiscord(
     content: message,
   });
 }
-
-declare const global: any;
-global.sendNotificationToDiscord = sendNotificationToDiscord;

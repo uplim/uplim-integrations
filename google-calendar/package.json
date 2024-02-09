@@ -1,6 +1,7 @@
 {
   "name": "google-calendar",
   "version": "1.0.0",
+  "packageManager": "yarn@4.1.0",
   "description": "Google カレンダーの変更通知を Discord に飛ばす Google Apps Script",
   "license": "MIT",
   "private": true,
