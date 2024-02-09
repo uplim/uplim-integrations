@@ -37,6 +37,7 @@ jobs:
             "scriptId": "${{ secrets.TRIPLATE_CONTACT_FORM_SCRIPT_ID }}",
             "roodDir": "./dist"
           }
+          EOF
 
       - name: Build & Deploy
         run: |
