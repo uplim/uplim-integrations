@@ -1,3 +1,4 @@
+import { createMessage } from "./functions/createMessage";
 import { postMessage } from "./functions/postMessage";
 
 declare const global: Record<

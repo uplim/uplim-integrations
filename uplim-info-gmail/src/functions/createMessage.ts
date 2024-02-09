@@ -1,4 +1,4 @@
-function createMessage(message: GoogleAppsScript.Gmail.GmailMessage) {
+export function createMessage(message: GoogleAppsScript.Gmail.GmailMessage) {
   return (
     `[Date] ${message.getDate()}` +
     `\n[From] ${message.getFrom()}` +
