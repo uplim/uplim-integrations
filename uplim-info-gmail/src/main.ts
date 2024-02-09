@@ -1,12 +1,6 @@
 import { createMessage } from "./functions/createMessage";
 import { postMessage } from "./functions/postMessage";
 
-declare const global: Record<
-  string,
-  (e: GoogleAppsScript.Events.FormsOnFormSubmit) => void
->;
-global.main = main;
-
 function main() {
   const threads = GmailApp.search("in:Inbox is:Unread", 0, 100);
 
@@ -25,3 +19,6 @@ function main() {
     }
   }
 }
+
+declare const global: Record<string, () => void>;
+global.main = main;
