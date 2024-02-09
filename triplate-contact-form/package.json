@@ -2,7 +2,8 @@
   "name": "triplate-contact-form",
   "version": "0.0.0",
   "scripts": {
-    "build": "node build.js && cp appsscript.json dist/"
+    "build": "node build.js && cp appsscript.json dist/",
+    "push": "yarn build && clasp push"
   },
   "devDependencies": {
     "@google/clasp": "2.4.2",
