@@ -3801,6 +3801,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"uplim-info-gmail@workspace:uplim-info-gmail":
+  version: 0.0.0-use.local
+  resolution: "uplim-info-gmail@workspace:uplim-info-gmail"
+  dependencies:
+    "@google/clasp": "npm:2.4.2"
+    "@types/google-apps-script": "npm:1.0.77"
+    esbuild: "npm:0.19.6"
+    esbuild-gas-plugin: "npm:0.8.0"
+  languageName: unknown
+  linkType: soft
+
 "uplim-integrations@workspace:.":
   version: 0.0.0-use.local
   resolution: "uplim-integrations@workspace:."
