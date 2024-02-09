@@ -1,9 +1,11 @@
 import { fetchCalendarChanges } from "./calendar";
-import { postMessage } from "./discord";
+import { postMessage } from "./functions/postMessage";
 
 function main({ calendarId }: { calendarId: string }) {
-  fetchCalendarChanges(calendarId).forEach((event) => {
+  for (const event of fetchCalendarChanges(calendarId)) {
     console.log(event);
+
+    if (!event.start || !event.end) continue;
 
     postMessage({
       username: "Google Calendar Notifications",
@@ -19,13 +21,13 @@ function main({ calendarId }: { calendarId: string }) {
           fields: [
             {
               name: ":calendar: 日付",
-              value: buildDateTimeString(event.start!, event.end!),
+              value: buildDateTimeString(event.start, event.end),
             },
           ],
         },
       ],
     });
-  });
+  }
 }
 
 function switchState(state: "created" | "updated" | "deleted") {
@@ -65,17 +67,31 @@ function buildDateTimeString(
   return text;
 }
 
-function formatDate(date: Date, format: string): string {
-  format = format.replace(/yyyy/g, date.getFullYear().toString());
-  format = format.replace(/MM/g, `0${date.getMonth() + 1}`.slice(-2));
-  format = format.replace(/dd/g, `0${date.getDate()}`.slice(-2));
-  format = format.replace(/HH/g, `0${date.getHours()}`.slice(-2));
-  format = format.replace(/mm/g, `0${date.getMinutes()}`.slice(-2));
-  format = format.replace(/ss/g, `0${date.getSeconds()}`.slice(-2));
-  format = format.replace(/SSS/g, `00${date.getMilliseconds()}`.slice(-3));
-  format = format.replace(/A/g, "日月火水木金土"[date.getDay()]);
-  return format;
+function formatDate(date: Date, format: string) {
+  // パディングを追加するユーティリティ関数
+  const pad = (num: number, length = 2) => num.toString().padStart(length, "0");
+
+  // 日付の各部分をマッピング
+  const replacements: { [key: string]: string } = {
+    yyyy: date.getFullYear().toString(),
+    MM: pad(date.getMonth() + 1),
+    dd: pad(date.getDate()),
+    HH: pad(date.getHours()),
+    mm: pad(date.getMinutes()),
+    ss: pad(date.getSeconds()),
+    SSS: pad(date.getMilliseconds(), 3),
+    A: "日月火水木金土"[date.getDay()],
+  };
+
+  // フォーマット文字列の置換
+  return Object.keys(replacements).reduce(
+    (acc, key) => acc.replace(new RegExp(key, "g"), replacements[key]),
+    format,
+  );
 }
 
-declare const global: any;
+declare const global: Record<
+  string,
+  ({ calendarId }: { calendarId: string }) => void
+>;
 global.main = main;

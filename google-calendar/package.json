@@ -6,9 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "clasp": "clasp",
-    "build": "cp src/appsscript.json dist/ && node build.js",
-    "push": "npm run build && clasp push"
+    "build": "node build.js && cp appsscript.json dist/",
+    "push": "yarn build && clasp push"
   },
   "devDependencies": {
     "@google/clasp": "2.4.2",

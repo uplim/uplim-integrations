@@ -1,4 +1,4 @@
-export function postMessage(data: any) {
+export function postMessage(data: Record<string, unknown>) {
   const properties = PropertiesService.getScriptProperties();
   const url = properties.getProperty("DISCORD_INCOMING_WEBHOOK_URL");
   if (!url)

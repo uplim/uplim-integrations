@@ -5,10 +5,6 @@ export interface CustomCalendarChangeEvent
   changeState: CalendarChangeState;
 }
 
-/**
- * 変更があったカレンダーイベントを取得する
- * syncToken が存在しない場合 (初回実行時など) は空の結果を返す
- */
 export function fetchCalendarChanges(
   calendarId: string,
 ): CustomCalendarChangeEvent[] {
@@ -46,19 +42,20 @@ export function fetchCalendarChanges(
 /**
  * フルスキャンを実行して syncToken を返す
  */
-function fetchSyncToken(calendarId: string): string {
+function fetchSyncToken(calendarId: string) {
   const now = new Date();
-  let res: GoogleAppsScript.Calendar.Schema.Events;
   let pageToken: string | undefined = undefined;
+
   // 現在時刻以降のイベントを取得し続ける
   while (true) {
-    res = Calendar.Events?.list(calendarId, {
+    const res = Calendar.Events?.list(calendarId, {
       calendarId,
       pageToken,
       showDeleted: true,
       timeMin: now.toISOString(),
       maxResults: 2500,
     });
+
     // syncToken が得られたら終了する
     if (res.nextSyncToken) return res.nextSyncToken;
     if (!res.nextPageToken) throw new Error();
