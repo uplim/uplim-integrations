@@ -17,6 +17,7 @@
     "triplate-contact-form",
     "google-calendar",
     "triplate-delete-user-form",
-    "uplim-info-gmail"
+    "uplim-info-gmail",
+    "utils"
   ]
 }

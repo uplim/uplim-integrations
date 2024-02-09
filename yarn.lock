@@ -2004,6 +2004,7 @@ __metadata:
     "@types/google-apps-script": "npm:1.0.57"
     esbuild: "npm:0.19.4"
     esbuild-gas-plugin: "npm:0.8.0"
+    utils: "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -3681,6 +3682,7 @@ __metadata:
     "@types/google-apps-script": "npm:1.0.77"
     esbuild: "npm:0.19.6"
     esbuild-gas-plugin: "npm:0.8.0"
+    utils: "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -3692,6 +3694,7 @@ __metadata:
     "@types/google-apps-script": "npm:1.0.77"
     esbuild: "npm:0.19.6"
     esbuild-gas-plugin: "npm:0.8.0"
+    utils: "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -3829,6 +3832,7 @@ __metadata:
     "@types/google-apps-script": "npm:1.0.77"
     esbuild: "npm:0.19.6"
     esbuild-gas-plugin: "npm:0.8.0"
+    utils: "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -3864,6 +3868,12 @@ __metadata:
   checksum: 10c0/41a5bdd214df2f6c3ecf8622745e4a366c4adced864bc3c833739791aeeeb1838119af7daed4ba36428114b5c67dcda034a79c882e97e43c03e66a4dd7389942
   languageName: node
   linkType: hard
+
+"utils@workspace:*, utils@workspace:utils":
+  version: 0.0.0-use.local
+  resolution: "utils@workspace:utils"
+  languageName: unknown
+  linkType: soft
 
 "uuid@npm:^8.0.0":
   version: 8.3.2

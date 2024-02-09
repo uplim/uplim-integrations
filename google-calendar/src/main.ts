@@ -1,5 +1,5 @@
+import { postMessage } from "utils";
 import { fetchCalendarChanges } from "./functions/fetchCalendarChanges";
-import { postMessage } from "./functions/postMessage";
 
 function main({ calendarId }: { calendarId: string }) {
   for (const event of fetchCalendarChanges(calendarId)) {

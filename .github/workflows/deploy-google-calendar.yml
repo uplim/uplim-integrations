@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - google-calendar/**
+      - utils/**
   workflow_dispatch:
 
 jobs:

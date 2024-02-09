@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - triplate-delete-user-form/**
+      - utils/**
   workflow_dispatch:
 
 jobs:

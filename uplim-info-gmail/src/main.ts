@@ -1,5 +1,5 @@
+import { postMessage } from "utils";
 import { createMessage } from "./functions/createMessage";
-import { postMessage } from "./functions/postMessage";
 
 function main() {
   const threads = GmailApp.search("in:Inbox is:Unread", 0, 100);

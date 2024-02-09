@@ -10,5 +10,8 @@
     "@types/google-apps-script": "1.0.77",
     "esbuild": "0.19.6",
     "esbuild-gas-plugin": "0.8.0"
+  },
+  "dependencies": {
+    "utils": "workspace:*"
   }
 }

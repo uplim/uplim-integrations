@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - triplate-contact-form/**
+      - utils/**
   workflow_dispatch:
 
 jobs:

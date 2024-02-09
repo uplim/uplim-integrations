@@ -1,4 +1,4 @@
-import { postMessage } from "./functions/postMessage";
+import { postMessage } from "utils";
 
 declare const global: Record<
   string,
