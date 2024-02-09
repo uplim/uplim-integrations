@@ -10,22 +10,20 @@ function main(e: GoogleAppsScript.Events.FormsOnFormSubmit) {
   const formResponses = e.response.getItemResponses();
   const email = e.response.getRespondentEmail();
 
-  let contents = "";
-  // 項目を繰り返す
-  for (let i = 0; i < formResponses.length; i++) {
-    const formResponse = formResponses[i];
+  const contents = formResponses
+    .map((formResponse) => {
+      try {
+        const question = formResponse.getItem().getTitle();
+        const answer = formResponse.getResponse();
 
-    try {
-      const question = formResponse.getItem().getTitle();
-      const answer = formResponse.getResponse();
-
-      contents += `${question}: ${answer}`;
-    } catch (e) {
-      console.log(e);
-    }
-
-    if (i + 1 !== formResponses.length) contents += "\n";
-  }
+        return `${question}: ${answer}`;
+      } catch (error) {
+        console.log(error);
+        return "";
+      }
+    })
+    .filter((line) => line)
+    .join("\n");
 
   const message = `${email}からお問い合わせです。\n\`\`\`\n${contents}\n\`\`\``;
 

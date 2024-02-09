@@ -80,12 +80,12 @@ function formatDate(date: Date, format: string) {
     mm: pad(date.getMinutes()),
     ss: pad(date.getSeconds()),
     SSS: pad(date.getMilliseconds(), 3),
-    A: "日月火水木金土"[date.getDay()],
+    A: "日月火水木金土"[date.getDay()] || "日",
   };
 
   // フォーマット文字列の置換
   return Object.keys(replacements).reduce(
-    (acc, key) => acc.replace(new RegExp(key, "g"), replacements[key]),
+    (acc, key) => acc.replace(new RegExp(key, "g"), replacements[key] ?? ""),
     format,
   );
 }

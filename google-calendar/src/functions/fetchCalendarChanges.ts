@@ -45,10 +45,11 @@ export function fetchCalendarChanges(
 function fetchSyncToken(calendarId: string) {
   const now = new Date();
   let pageToken: string | undefined = undefined;
+  let res: GoogleAppsScript.Calendar.Schema.Events | undefined = undefined;
 
   // 現在時刻以降のイベントを取得し続ける
   while (true) {
-    const res = Calendar.Events?.list(calendarId, {
+    res = Calendar.Events?.list(calendarId, {
       calendarId,
       pageToken,
       showDeleted: true,
@@ -57,8 +58,8 @@ function fetchSyncToken(calendarId: string) {
     });
 
     // syncToken が得られたら終了する
-    if (res.nextSyncToken) return res.nextSyncToken;
-    if (!res.nextPageToken) throw new Error();
+    if (res?.nextSyncToken) return res.nextSyncToken;
+    if (!res?.nextPageToken) throw new Error();
     pageToken = res.nextPageToken;
   }
 }
