@@ -23,7 +23,6 @@ jobs:
           corepack enable
           yarn install
 
-
       - name: Check Lint and Format
         run: |
           yarn ci
