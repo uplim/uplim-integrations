@@ -8,12 +8,16 @@ function main() {
     for (const message of thread.getMessages()) {
       if (!message.isUnread()) return;
       const text = createMessage(message);
+
+      const cutText =
+        text.length > 2000 ? `${text.substring(0, 1995)}...` : text;
+
       postMessage({
         username: "Uplim Info Gmail",
         parse: "full",
         avatar_url:
           "https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png",
-        content: text,
+        content: cutText,
       });
       message.markRead();
     }
