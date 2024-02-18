@@ -3,8 +3,15 @@ import { createMessage } from "./functions/createMessage";
 
 function main() {
   const threads = GmailApp.search("in:Inbox is:Unread", 0, 100);
+  const label = GmailApp.getUserLabelByName("isNotified");
 
   for (const thread of threads) {
+    const isLabeled = thread
+      .getLabels()
+      .some((threadLabel) => threadLabel.getName() === label.getName());
+
+    if (isLabeled) continue;
+
     for (const message of thread.getMessages()) {
       if (!message.isUnread()) return;
       const text = createMessage(message);
@@ -19,8 +26,9 @@ function main() {
           "https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png",
         content: cutText,
       });
-      message.markRead();
     }
+
+    thread.addLabel(label);
   }
 }
 
