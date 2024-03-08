@@ -34,7 +34,7 @@ jobs:
         run: |
           cat > ./packages/uplim-kun-monitoring/.clasp.json <<EOF
           {
-            "scriptId": "${{ secrets.UPLIM_INFO_GMAIL_SCRIPT_ID }}",
+            "scriptId": "${{ secrets.UPLIM_KUN_MONITORING_SCRIPT_ID }}",
             "rootDir": "./dist"
           }
           EOF
