@@ -1,0 +1,44 @@
+name: Build & Deploy Uplim Kun Monitoring
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/uplim-kun-monitoring/**
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.11.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11.0'
+
+      - name: Install Packages
+        run: |
+          corepack enable
+          yarn workspaces focus uplim-kun-monitoring
+
+      - name: Create .clasprc.json
+        run: |
+          echo "${{ secrets.UPLIM_INFO_BASE64 }}" | base64 --decode > ~/.clasprc.json
+
+      - name: Create .clasp.json
+        run: |
+          cat > ./packages/uplim-kun-monitoring/.clasp.json <<EOF
+          {
+            "scriptId": "${{ secrets.UPLIM_INFO_GMAIL_SCRIPT_ID }}",
+            "rootDir": "./dist"
+          }
+          EOF
+
+      - name: Build & Deploy
+        run: |
+          yarn workspace uplim-kun-monitoring push
