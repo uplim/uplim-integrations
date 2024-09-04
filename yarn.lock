@@ -3724,6 +3724,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"triplate-line@workspace:packages/triplate-line":
+  version: 0.0.0-use.local
+  resolution: "triplate-line@workspace:packages/triplate-line"
+  dependencies:
+    "@google/clasp": "npm:2.4.2"
+    "@types/google-apps-script": "npm:1.0.77"
+    esbuild: "npm:0.19.6"
+    esbuild-gas-plugin: "npm:0.8.0"
+    utils: "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "ts2gas@npm:^4.2.0":
   version: 4.2.0
   resolution: "ts2gas@npm:4.2.0"
