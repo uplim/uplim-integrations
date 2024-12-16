@@ -2,7 +2,11 @@ import { postMessage } from "utils";
 import { createMessage } from "./functions/createMessage";
 
 function main() {
-  const threads = GmailApp.search("in:Inbox is:Unread", 0, 100);
+  const threads = GmailApp.search(
+    "in:Inbox is:Unread to:info@uplim.co.jp",
+    0,
+    100,
+  );
   const label = GmailApp.getUserLabelByName("isNotified");
 
   for (const thread of threads) {
@@ -20,7 +24,7 @@ function main() {
         text.length > 2000 ? `${text.substring(0, 1995)}...` : text;
 
       postMessage({
-        username: "Uplim Info Gmail",
+        username: "info@uplim.co.jp",
         parse: "full",
         avatar_url:
           "https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png",
