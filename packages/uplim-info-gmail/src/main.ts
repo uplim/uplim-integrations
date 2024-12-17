@@ -23,12 +23,15 @@ function main() {
       const cutText =
         text.length > 2000 ? `${text.substring(0, 1995)}...` : text;
 
+      // biome-ignore lint/style/useTemplate: エスケープめっちゃ必要でむしろ読みにくくなるので
+      const codeBlock = "```\n" + cutText + "\n```";
+
       postMessage({
         username: "info@uplim.co.jp",
         parse: "full",
         avatar_url:
           "https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png",
-        content: cutText,
+        content: codeBlock,
       });
     }
 
