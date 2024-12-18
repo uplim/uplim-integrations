@@ -2,11 +2,7 @@ import { postMessage } from "utils";
 import { createMessage } from "./functions/createMessage";
 
 function main() {
-  const threads = GmailApp.search(
-    "in:Inbox is:Unread to:info@uplim.co.jp",
-    0,
-    100,
-  );
+  const threads = GmailApp.search("in:Inbox to:info@uplim.co.jp", 0, 100);
   const label = GmailApp.getUserLabelByName("isNotified");
 
   for (const thread of threads) {
