@@ -16,9 +16,10 @@ function main() {
 
     if (isLabeled) continue;
 
-    const hasUnreadMessage = false;
+    let hasUnreadMessage = false;
     for (const message of thread.getMessages()) {
       if (message.isUnread()) {
+        hasUnreadMessage = true;
         const text = createMessage(message);
 
         const cutText =
