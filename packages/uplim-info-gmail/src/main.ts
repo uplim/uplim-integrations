@@ -16,7 +16,7 @@ function main() {
       const text = createMessage(message);
 
       const cutText =
-        text.length > 2000 ? `${text.substring(0, 1995)}...` : text;
+        text.length > 1950 ? `${text.substring(0, 1950)}...` : text;
 
       // biome-ignore lint/style/useTemplate: エスケープめっちゃ必要でむしろ読みにくくなるので
       const codeBlock = "```\n" + cutText + "\n```";
