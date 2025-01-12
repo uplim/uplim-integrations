@@ -1,3 +1,5 @@
+export {};
+
 function main() {
   // スプレッドシートのIDとシート名を設定
   const spreadsheetId = "1-Hy-8r_Qoruq_LwpIg1Uxwn0mlixL_X40wXXgW3RHCA";
@@ -73,3 +75,6 @@ function main() {
     }
   }
 }
+
+declare const global: Record<string, () => void>;
+global.main = main;
