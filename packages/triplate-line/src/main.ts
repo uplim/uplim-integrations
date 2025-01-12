@@ -5,7 +5,7 @@ function doPost(e: GoogleAppsScript.Events.DoPost) {
   const lineMessageText = postData.message.text;
 
   postMessage({
-    username: "LINE Bot",
+    username: "LINE BOT",
     parse: "full",
     avatar_url:
       "https://cdn.discordapp.com/attachments/792765244040675389/921661726863282176/pngegg.png",
