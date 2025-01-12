@@ -3404,6 +3404,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sync-calendar@workspace:packages/sync-calendar":
+  version: 0.0.0-use.local
+  resolution: "sync-calendar@workspace:packages/sync-calendar"
+  dependencies:
+    "@google/clasp": "npm:2.4.2"
+    "@types/google-apps-script": "npm:1.0.77"
+    esbuild: "npm:0.19.6"
+    esbuild-gas-plugin: "npm:0.8.0"
+    utils: "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "tar@npm:^6.1.11, tar@npm:^6.1.2":
   version: 6.2.0
   resolution: "tar@npm:6.2.0"
