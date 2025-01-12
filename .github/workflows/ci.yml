@@ -6,6 +6,10 @@ on:
   push:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   CI:
     runs-on: ubuntu-22.04
@@ -13,15 +17,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Node.js 20.11.0
+      - name: Use Node.js 22.12.0
         uses: actions/setup-node@v4
         with:
-          node-version: '20.11.0'
+          node-version: '22.12.0'
 
-      - name: Install Packages
-        run: |
-          corepack enable
-          yarn install
+      - name: Monorepo install
+        uses: ./.github/actions/yarn-nm-install
+        with:
+          cwd: '.'
+          enable-corepack: true
+          cache-node-modules: true
+          cache-install-state: true
 
       - name: Check Lint and Format
         run: |
