@@ -29,12 +29,12 @@ function main() {
       const firstDayOfNextMonth = new Date(
         now.getFullYear(),
         now.getMonth() + 1,
-        1
+        1,
       );
       const firstDayOfFollowingMonth = new Date(
         now.getFullYear(),
         now.getMonth() + 2,
-        1
+        1,
       );
 
       // カレンダーオブジェクトを取得
@@ -48,10 +48,10 @@ function main() {
       // 今月と来月のプライベート予定を削除
       const existingEvents = workCal.getEvents(
         firstDayOfMonth,
-        firstDayOfFollowingMonth
+        firstDayOfFollowingMonth,
       );
       for (const event of existingEvents) {
-        if (event.getTitle().startsWith("プライベート予定")) {
+        if (event.getTitle().startsWith("不在")) {
           event.deleteEvent();
         }
       }
@@ -59,12 +59,12 @@ function main() {
       // 個人カレンダーの予定を取得
       const personalEvents = personalCal.getEvents(
         firstDayOfMonth,
-        firstDayOfFollowingMonth
+        firstDayOfFollowingMonth,
       );
 
       // 個人カレンダーの予定を社用カレンダーにコピー
       for (const event of personalEvents) {
-        const title = `プライベート予定`; // ユニークなタイトルを生成
+        const title = "不在"; // ユニークなタイトルを生成
 
         // 社用カレンダーに予定を作成
         const newEvent = workCal.createEvent(
@@ -73,7 +73,7 @@ function main() {
           event.getEndTime(),
           {
             description: "この予定は個人用カレンダーから同期されています。",
-          }
+          },
         );
 
         // イベントをプライベートに設定
